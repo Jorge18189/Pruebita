@@ -1,0 +1,252 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #9b9de6, #6f73d2);
+            color: #2d2d2d;
+        }
+
+        .layout-container {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 24px;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 24px;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            height: calc(100vh - 48px);
+        }
+
+        .side-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .timer-container {
+            height: 180px;
+            margin-bottom: 24px;
+        }
+
+        .progress-container {
+            height: calc(100vh - 252px);
+            overflow-y: auto;
+        }
+
+        /* Timer Styles */
+        .timer-header, .progress-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .timer-header i, .progress-header i {
+            font-size: 24px;
+            color: #6f73d2;
+        }
+
+        .timer-header h3, .progress-header h3 {
+            font-size: 18px;
+            color: #2d2d2d;
+        }
+
+        .timer {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            color: #6f73d2;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Progress Styles */
+        .section-progress {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #f8f9ff;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-item:hover {
+            transform: translateX(2px);
+            background: #eef0ff;
+        }
+
+        .progress-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 50%;
+            border: 2px solid #6f73d2;
+            color: #6f73d2;
+            font-weight: 700;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a4a4a;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .question-item {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d2d2d;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .options-container {
+            display: grid;
+            gap: 16px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            border: 2px solid #eef0ff;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #ffffff;
+        }
+
+        .option-item:hover {
+            border-color: #6f73d2;
+            background: #f8f9ff;
+            transform: translateX(4px);
+        }
+
+        .option-item input[type="radio"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            margin-right: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-item input[type="radio"]:checked {
+            border-color: #6f73d2;
+            border-width: 6px;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 2px solid #eef0ff;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #6f73d2, #9b9de6);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #eef0ff;
+            color: #6f73d2;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .layout-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .side-container {
+                position: sticky;
+                top: 24px;
+            }
+
+            .container {
+                height: auto;
+            }
+
+            .timer-container {
+                margin-bottom: 24px;
+            }
+
+            .progress-container {
+                height: auto;
+            }
+}
+.responsive-image {
+    width: 100%;
+    height: auto;
+    max-width: 400px; /* Ajusta el valor máximo según tus preferencias */
+    display: block;
+    margin: 0 auto; /* Centra la imagen */
+}
