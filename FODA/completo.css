@@ -1,0 +1,94 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del cuerpo */
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #1a237e, #bbdefb); /* Gradiente de azul rey oscuro a azul claro pastel */
+    color: #2d2d2d;
+}
+
+/* Contenedor principal */
+.layout-container {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px;
+    height: 100vh;
+}
+
+/* Contenedor de contenido */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    height: calc(100vh - 48px);
+}
+
+/* Contenedor lateral */
+.side-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos de botones */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #1a237e, #bbdefb); /* Gradiente azul rey oscuro a azul claro pastel */
+    color: white;
+}
+
+.btn-secondary {
+    background: #e3f2fd; /* Azul pastel claro */
+    color: #1a237e; /* Azul rey oscuro */
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Diseño responsivo */
+@media (max-width: 1024px) {
+    .layout-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .side-container {
+        position: sticky;
+        top: 24px;
+    }
+
+    .container {
+        height: auto;
+    }
+}
